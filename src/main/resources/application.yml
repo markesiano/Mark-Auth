@@ -1,0 +1,23 @@
+server:
+    port: ${SERVER_PORT:8080}  # Default to port 8080, can be overridden by environment variable
+
+spring:
+    application:
+        name: auth-service
+    profiles:
+        active: ${SPRING_PROFILES_ACTIVE:dev}  # Default to 'test' profile, can be overridden by environment variable
+    security:
+        jwt:
+            secret: ${JWT_SECRET}
+
+# JWT Repository Configuration
+# Choose implementation type: 'redis' for RedisJwtRepository, 'memory' for InMemoryJwtRepository
+jwt:
+    repository:
+        type: ${JWT_REPOSITORY_TYPE:memory}  # Options: redis, memory
+
+# Redis Configuration (only required if using Redis JWT repository)
+cachedredis:
+    uri: ${REDIS_URI:}
+    port: ${REDIS_PORT:6379}
+

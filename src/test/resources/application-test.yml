@@ -1,0 +1,17 @@
+spring:
+  security:
+    jwt:
+      # This is a test secret - NOT for production use
+      # In production, use environment variables or secure secret management
+      secret: ${JWT_SECRET_TEST:dGVzdC1zZWNyZXQtZm9yLWp3dC10b2tlbi1nZW5lcmF0aW9uLXRoYXQtaXMtc2VjdXJlLWVub3VnaC1mb3ItdGVzdGluZy1wdXJwb3Nlcy1vbmx5}
+
+# Test profile configuration
+logging:
+  level:
+    com.markesiano.auth_service: DEBUG
+    org.springframework.security: DEBUG
+
+# Disable security for tests if needed
+management:
+  security:
+    enabled: false
